@@ -22,16 +22,13 @@ class LinkedList:
     def __init__(self):
         self.length = 0
         self.head = None
+        self.tail = None
 
     def __iter__(self):
         node = self.head
         while node is not None:
             yield node
             node = node.next
-
-    def get_length(self):
-        """Return list length"""
-        return self.length
 
     def append(self, data):
         """Add element to the end of list"""
@@ -40,11 +37,11 @@ class LinkedList:
             self.head = new_node
             self.length += 1
             return
-        last = self.head
-        while last.next:
-            last = last.next
-        last.next = new_node
+        else:
+            self.tail.next = new_node
+        self.tail = new_node
         self.length += 1
+        return
 
     def prepend(self, data):
         """Add element to the beginning of the list"""
@@ -52,6 +49,7 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
         self.length += 1
+        return
 
     def insert(self, before_data, data):
         """Insert element after passed"""
@@ -67,6 +65,7 @@ class LinkedList:
             new_node.next = node.next
             node.next = new_node
             self.length += 1
+        return
 
     def remove(self, remove_data):
         """Remove element from the list"""
@@ -86,6 +85,7 @@ class LinkedList:
         prev.next = head.next
         self.length -= 1
         head = None
+        return
 
     def traverse(self, callback):
         """Call callback for each element of the linked list"""
@@ -93,3 +93,4 @@ class LinkedList:
         while node is not None:
             callback(node.data)
             node = node.next
+        return
