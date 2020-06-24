@@ -35,13 +35,13 @@ class LinkedList:
         new_node = Node(data)
         if self.head is None:
             self.head = new_node
+            self.tail = new_node
             self.length += 1
             return
-        else:
-            self.tail.next = new_node
+        tail = self.tail
+        tail.next = new_node
         self.tail = new_node
         self.length += 1
-        return
 
     def prepend(self, data):
         """Add element to the beginning of the list"""
@@ -49,7 +49,6 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
         self.length += 1
-        return
 
     def insert(self, before_data, data):
         """Insert element after passed"""
@@ -64,8 +63,7 @@ class LinkedList:
             new_node = Node(data)
             new_node.next = node.next
             node.next = new_node
-            self.length += 1
-        return
+        self.length += 1
 
     def remove(self, remove_data):
         """Remove element from the list"""
@@ -85,7 +83,6 @@ class LinkedList:
         prev.next = head.next
         self.length -= 1
         head = None
-        return
 
     def traverse(self, callback):
         """Call callback for each element of the linked list"""
@@ -93,4 +90,11 @@ class LinkedList:
         while node is not None:
             callback(node.data)
             node = node.next
-        return
+
+    def first(self):
+        """Returns first element"""
+        return self.head
+
+    def last(self):
+        """Returns last element"""
+        return self.tail
