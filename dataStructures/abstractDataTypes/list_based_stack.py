@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """List based stack implementation"""
-from linked_list import LinkedList
+from baseDataTypes import linked_list
 
 
 class ListBasedStack:
@@ -8,11 +8,11 @@ class ListBasedStack:
 
     def __init__(self):
         self.length = 0
-        self.stack = LinkedList()
+        self.stack = linked_list.LinkedList()
 
     def empty(self):
         """Return true if stack is empty"""
-        return self.stack.get_length() == 0
+        return self.stack.length == 0
 
     def push(self, element):
         """Add element to the end of the stack"""
