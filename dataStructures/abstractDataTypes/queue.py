@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """Queue implementation"""
-from baseDataTypes import linked_list
+from baseDataTypes.linked_list import LinkedList
 
 
 class Queue:
@@ -8,7 +8,7 @@ class Queue:
 
     def __init__(self):
         self.length = 0
-        self.stack = linked_list.LinkedList()
+        self.stack = LinkedList()
 
     def empty(self):
         """Returns true if queue is empty"""
