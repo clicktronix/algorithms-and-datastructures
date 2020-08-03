@@ -8,19 +8,19 @@ class Queue:
 
     def __init__(self):
         self.length = 0
-        self.stack = LinkedList()
+        self.queue = LinkedList()
 
     def empty(self):
         """Returns true if queue is empty"""
-        return self.stack.length == 0
+        return self.queue.length == 0
 
     def push(self, element):
-        """Add element to the end of the stack"""
-        self.stack.append(element)
+        """Add element to the end of the queue"""
+        self.queue.append(element)
 
     def pop(self):
         """Returns first element"""
-        element = self.stack.first()
-        self.stack.remove(element.data)
+        element = self.queue.first()
+        self.queue.remove(element.data)
         self.length -= 1
         return element
